@@ -5,13 +5,13 @@ import os
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Mind-Map Auto-Builder", layout="wide")
 st.title("🧠 Mind-Map Auto-Builder")
 st.markdown("Paste your notes or paragraph, and let AI generate a structured mind map.")
 
-input_text = st.text_area("✍️ Paste Your Text Below:", height=300)
+input_text = st.text_area("✍️ Paste Your Text Below:", height=100)
 
 client = openai.OpenAI(api_key=api_key)
 
